@@ -1,0 +1,42 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <input id="url" value="http://chefinbox.local/api/v1" style="width: 500px">
+    <button type="button" onclick="submit()">Call</button>
+
+
+<script>
+
+
+    function submit() {
+
+        var settings = {
+            //"crossDomain": false,
+            "url"    : $('#url').val(),
+            "method" : "GET",
+            "headers": {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "X-Requested-With": "XMLHttpRequest",
+            }
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            alert('Success')
+        }).fail(function (e) {
+            alert('Failed')
+        });;
+        return false;
+    }
+
+</script>
+</body>
+
+
+</html>
+
